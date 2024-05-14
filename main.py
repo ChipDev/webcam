@@ -1,9 +1,9 @@
 import cv2
-import pygame
-from pygame.locals import *
 import pyaudio
+import pygame
 import speech_recognition as sr
 from moviepy.editor import VideoFileClip
+from pygame.locals import *
 
 # Initialize the webcam
 cap = cv2.VideoCapture(0)
@@ -12,15 +12,19 @@ cap = cv2.VideoCapture(0)
 pygame.init()
 pygame.display.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((1920, 1080), FULLSCREEN, display=1)  # Use display index 2 for screen 2
+screen = pygame.display.set_mode(
+    (1920, 1080), FULLSCREEN, display=0
+)  # Use display index 2 for screen 2
 clock = pygame.time.Clock()
 
 # Load the video
-video1 = VideoFileClip('ted.mp4')
-pygame.mixer.music.load('HOW YA DOING - AUDIO FROM JAYUZUMI.COM.mp3')
+video1 = VideoFileClip("ted.mp4")
+pygame.mixer.music.load("HOW YA DOING - AUDIO FROM JAYUZUMI.COM.mp3")
 
 # Load the pre-trained face detection classifier
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(
+    cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+)
 
 show_video = False
 
